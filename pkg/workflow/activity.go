@@ -8,14 +8,14 @@ type (
 	activity struct {
 		parameters *expressions
 		results    *expressions
-		fn         activityHandler
+		fn         ActivityHandler
 	}
 
-	activityHandler func(context.Context, Variables) (Variables, error)
+	ActivityHandler func(context.Context, Variables) (Variables, error)
 )
 
 // Create new activity
-func Activity(fn activityHandler, aa, rr *expressions) *activity {
+func Activity(fn ActivityHandler, aa, rr *expressions) *activity {
 	return &activity{
 		parameters: aa,
 		results:    rr,
